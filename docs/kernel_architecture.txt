@@ -1,0 +1,26 @@
+Note: Incomplete. Userland, scheduling, and interrupt handling are among things yet to be designed here.
+
+KEP -> Kernel Entry Process
+The function that manages acquisition of the system's resources, including the ones in the bootloader.
+At the end of the function, it initializes KMM, KRM, KOS, places all the system resources into KRM,
+and loads the core functions of the kernel into KRM.
+
+KMM -> Kernel Memory Manager
+Purpose: Manages memory. Additionally contains the kernel's heap.
+
+KRM -> Kernel Resource Manager
+Purpose: Stores headers for kernel resources in a linear heap space.
+Used kernel-wide post-KEP to dictate the execution process and which functions to use.
+Additionally: many structures are pointed to here.
+
+KOS -> Kernel Object Storage
+Purpose: Special heap interface to store global named objects.
+Used in conjunction with KRM to dynamically store objects (such as directory hierarchies in FS namespaces)
+
+KML -> Kernel Main Loop
+First: Executes KRM & KOS routines.
+Then: Using structures from KRM+KOS, executes parts of the main loop in a specified order.
+Modification of this order and insertion of additional function pointers makes the kernel modular.
+
+Chart:
+Boot -> KEP -> KMM -> (KRM, KOS) -> KML
