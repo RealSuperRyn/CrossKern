@@ -1,0 +1,122 @@
+Stuff you need to write or use a library for in an OS:
+
+--KERNEL STUFF (PRE-AML)--
+Entry function
+Boot resource acquisition method
+Logger
+Framebuffer
+IDT handler
+ISR exception/interrupt handler(s)
+TSS handler
+GDT handler
+Memory Map interpreter
+4KiB Memory Region allocator
+Paging Utilities & handlers
+Page Frame Allocator
+Kernel Heap Allocator
+
+ACPI Machine Language Parser (Good Luck if you're writing this yourself)
+--KERNEL STUFF (POST-AML)--
+SMP initializer
+Synchronization/Thread Primitives
+Executable Linked Format Parser (Or something else if you're willing to write a linker and object file parser)
+Process Primitives
+Process List
+Init process support
+Process Switcher
+Syscall Handler
+Scheduler
+IPC
+mmap()
+Ability to have multiple users
+Permissions System
+Driver System
+Some form of VFS
+SATA, NVME, SCSI drivers
+FAT32 driver
+General-purpose FS driver
+Filesystem permissions
+USB drivers
+PS/2 handler
+Keyboard+Mouse support
+Audio output drivers
+Networking Primitives & Drivers
+
+--USERSPACE--
+Kernel API
+Synchronization/Thread Primitives
+User Heap Allocator
+IPC interface
+Filesystem interface
+Keymaps + Keyboard Handling
+Mouse Handling
+Graphics Libraries
+Image Format parsers
+Login Method
+User Console
+Coreutils
+Init Process
+SSL implementation
+HTTP(S) support
+Display Management
+Window Management
+Compositor
+Widget Toolkit
+Desktop Environment
+Terminal Emulator
+Theming, Icons
+Notepad, Debug Utilities, System Management utilities, File Manager
+Office Suite
+FTP utilities
+(From this point on, the system is now barely a daily driver for some office workers)
+Scripting Language parsers
+Compilers
+Linkers
+Build systems
+Development tools
+The ability to self-host
+
+--MORE KERNEL STUFF (Hard Difficulty)--
+Virtio GPU drivers, any constructs needed to support it
+API for GPU use in userspace
+Voodoo GPU drivers (proof of concept for real cards)
+i915 drivers
+amdgpu drivers
+If you're a crazed lunatic, NVIDIA drivers
+Virtualization support
+
+--MORE USERSPACE--
+(Optional) System call translation layer (like WINE) for *NIX programs to make them run native (Requires that you implement POSIX in some way)
+GPU usage protocol (examples of existing ones are: OpenGl, Vulkan, OpenCL, DirectX, Metal, CUDA; which can cover GPGPU and graphics use cases)
+Centralized settings application (essential for UX)
+Documentation/Education application(s)/portal
+FFmpeg or equivalent utility
+Multimedia viewing/editing utilities
+Virtualization software
+Package Management
+
+
+And now, the final boss:
+--WEB BROWSER (CORE)--
+Document Object Model (DOM)
+HTML5/4 + HTMX + XHTML parser
+CSS parser
+EcmaScript/TypeScript interpreter
+WASM interpreter
+Glue for all the preceeding components to work together
+Browser UI
+Webpage Renderer
+3D acceleration
+Security Protocols
+Standards Compliance
+
+--WEB BROWSER (ADDITIONAL)--
+Settings Page
+OS Integration
+Theming
+Gopher+Gemini protocol support
+Search engine support
+Extensions System
+Constant upkeep
+
+From here, the system is daily drivable for most. If you support *NIX programs, then nearly all.
