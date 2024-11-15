@@ -1,2 +1,4 @@
 .zig-cache/
 zig-out/
+limine_support/limine
+limine_support/esp
